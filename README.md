@@ -8,6 +8,7 @@ Usuário:
 - Visualizar produtos disponíveis para compra.
 - Adicionar produtos ao carrinho.
 - Finalizar compra e acessar a **página de pagamento via Pix**.
+- Visualizar seu histórico de compras.
 - Solicitar permissão para se tornar vendedor.
 
 Vendedor:
