@@ -1,0 +1,54 @@
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-4 fw-bold text-primary">Painel do Usuário</h2>
+
+                    <div class="d-grid gap-3">
+
+                        {{#if admin}}
+
+                        <a href="/painel/admin" class="btn btn-outline-dark btn-lg">
+                            Painel admin
+                        </a>
+                        {{/if }}
+
+                        {{#if cliente}}
+                        <a href="/formulario/vendedor" class="btn btn-outline-primary btn-lg">
+                            🚀 Quero ser vendedor
+                        </a>
+                        {{else}}
+                        <a href="/painel/vendedor" class="btn btn-outline-success btn-lg">
+                            📊 Painel vendedor
+                        </a>
+                        {{/if}}
+
+
+                        <a href="/lista/produtos" class="btn btn-outline-dark btn-lg">
+                            🛍️ Lista de produtos à venda
+                        </a>
+
+                        <a href="/carrinho/usuario" class="btn btn-outline-warning btn-lg">
+                            🛒 Meu carrinho
+                        </a>
+
+                        <a href="/lista/compras" class="btn btn-outline-info btn-lg">
+                            📦 Lista de compras
+                        </a>
+
+                        <a href="/editar/dados/:{{userId}}" class="btn btn-outline-secondary btn-lg">
+
+                            ⚙️ Editar meus dados
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

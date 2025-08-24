@@ -1,0 +1,79 @@
+<div class="container py-5">
+    {{#if msg_success}}
+    <div class="alert alert-danger text-center mt-4 fw-bold" id="flash-message">
+        Produto removido!
+    </div>
+    {{/if}}
+
+    {{#if produtosCarrinho}}
+    <h2 class="mb-4 text-center fw-bold text-primary">🛒 Seu Carrinho</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped align-middle shadow-sm">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {{#each produtosCarrinho}}
+                <tr>
+                    <td class="fw-semibold">{{this.nome_produto}}</td>
+                    <td>R$ {{this.preco_unitario}}</td>
+                    <td>{{this.quantidade}}</td>
+                    <td>
+                        <form action="/remover/produto" method="post" class="d-inline">
+                            <input type="hidden" name="ProdutoId" value="{{this.id}}">
+                            <input type="hidden" name="CarrinhoId" value="{{this.id_carrinho}}">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                ❌ Remover
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card shadow-lg border-0 mt-4">
+        <div class="card-body text-center">
+            <h4 class="fw-bold mb-3">💰 Total: R$ {{valorTotal}}</h4>
+            <form action="/finalizar/compra" method="post" class="d-grid gap-2">
+                <input type="hidden" name="UserId" value="{{sessaoAtiva}}">
+                <input type="hidden" name="CarrinhoId" value="{{idCarrinho}}">
+                <input type="hidden" name="valor_total" value="{{valorTotal}}">
+                <button type="submit" class="btn btn-success fw-bold">
+                    ✅ Finalizar Compra
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {{else}}
+    <div class="alert alert-warning text-center fw-semibold shadow-sm">
+        ⚠️ Não há nenhum produto no seu carrinho
+    </div>
+    {{/if}}
+
+    <div class="text-center mt-4">
+        <a href="/painel/usuario" class="btn btn-outline-secondary">
+            ⬅️ Voltar
+        </a>
+    </div>
+</div>
+
+<script>
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
+
+        if (flash) {
+
+            setTimeout(() => flash.remove(), 500);
+        }
+
+    }, 3000)
+</script>

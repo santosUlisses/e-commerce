@@ -1,0 +1,29 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-4">
+
+            <h2 class="text-center fw-bold text-dark mb-4">✏️ Editar Categoria</h2>
+
+            <form action="/editar/categoria" method="post">
+                <input type="hidden" name="id" value="{{categoria.id}}">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome </label>
+                    <input type="text" class="form-control" id="nome_produto" name="nome"
+                        value="{{categoria.nome_categoria}}" required pattern="[A-Za-zÀ-ÿ\s]+"
+                        title="Digite apenas letras e espaços">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success btn-lg">💾 Salvar Alterações</button>
+                </div>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="/adicionar/categoria" class="btn btn-outline-secondary">
+                    🔙 Voltar a lista
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

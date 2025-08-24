@@ -1,0 +1,52 @@
+<div class="container py-5">
+
+    {{#if msg_success}}
+    <div class="alert alert-success text-center mt-4 fw-bold">
+        Formulário enviado!
+    </div>
+    {{/if}}
+
+
+    <h1 class="mb-4 text-center fw-bold text-primary">📝 Formulário para Análise</h1>
+
+    <form action="/formulario/vendedor" method="post" class="p-4 rounded shadow bg-light">
+        <input type="hidden" name="UserId" value="{{sessaoAtiva}}">
+
+
+        <div class="mb-3">
+            <label for="cnpj" class="form-label fw-semibold">CNPJ</label>
+            <input type="tel" class="form-control" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" minlength="11"
+                maxlength="14" required>
+            <div class="form-text">Digite apenas números, sem pontos ou traços.</div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="tipo_produto" class="form-label fw-semibold">Tipo de Produto</label>
+            <input type="text" class="form-control" id="tipo_produto" name="tipo_produto"
+                placeholder="Ex: Frutas, Verduras, Roupas..." required pattern="[A-Za-zÀ-ÿ\s]+"
+                title="Digite apenas letras e espaços">
+        </div>
+
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-lg">
+                <i class="bi bi-send-fill"></i> Enviar
+            </button>
+        </div>
+    </form>
+
+
+    {{#if msg_error}}
+    <div class="alert alert-danger text-center mt-4 fw-bold">
+        🚫 CNPJ já cadastrado!
+    </div>
+    {{/if}}
+
+
+    <div class="text-center mt-4">
+        <a href="/painel/usuario" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>

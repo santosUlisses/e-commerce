@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-primary fw-bold mb-3">{{produto.nome_produto}}</h3>
+                    <p class="card-text fs-5 text-success fw-semibold mb-4">
+                        💰 R$ {{produto.valor_produto}}
+                    </p>
+
+                    <form action="/adicionar/carrinho" method="post" class="d-grid gap-3">
+                        <input type="hidden" value="{{sessaoAtiva}}" name="UserId">
+                        <input type="hidden" value="{{produto.id}}" name="ProdutoId">
+                        <input type="hidden" value="{{produto.valor_produto}}" name="preco_unitario">
+
+                        <div class="mb-3">
+                            <label for="quantidade" class="form-label fw-semibold">Quantidade</label>
+                            <input type="number" id="quantidade" name="quantidade" class="form-control text-center"
+                                value="1" min="1" max="{{produto.estoque}}">
+                            <small class="text-muted">Estoque disponível: {{produto.estoque}}</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary fw-bold">
+                            🛒 Adicionar ao Carrinho
+                        </button>
+                    </form>
+
+                    <div class="mt-4">
+                        <a href="/lista/produtos" class="btn btn-outline-secondary">⬅️ Voltar aos Produtos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

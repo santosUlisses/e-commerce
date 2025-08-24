@@ -1,0 +1,55 @@
+{{#if msg_success}}
+<div class="alert alert-danger text-center mt-4 fw-bold">
+    🚫 Login ou senha inválido!
+</div>
+{{/if}}
+
+
+<div class="container py-5">
+    <h1 class="mb-4 text-center fw-bold text-primary">⚙️ Painel do Administrador</h1>
+    <p class="text-center text-muted mb-5">Gerencie categorias, solicitações e vendedores.</p>
+
+    <div class="row g-4 justify-content-center">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3 text-primary">
+                        <i class="bi bi-tags-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Categorias</h5>
+                    <p class="card-text text-muted">Gerencie as categorias de produtos do sistema.</p>
+                    <a href="/adicionar/categoria" class="btn btn-primary w-100">Adicionar Categoria</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3 text-warning">
+                        <i class="bi bi-person-plus-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Solicitações</h5>
+                    <p class="card-text text-muted">Aprovar ou recusar pedidos para virar vendedor.</p>
+                    <a href="/solicitacoes/vendedor" class="btn btn-warning w-100">Ver Solicitações</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3 text-success">
+                        <i class="bi bi-shop-window" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Vendedores</h5>
+                    <p class="card-text text-muted">Visualize e gerencie os vendedores cadastrados.</p>
+                    <a href="/lista/vendedores" class="btn btn-success w-100">Lista de Vendedores</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-4 fw-bold text-primary">📊 Minhas Vendas</h2>
+
+                    {{#if vendas.length}}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Preço Unitário</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each vendas}}
+                                <tr>
+                                    <td>{{this.nome}}</td>
+                                    <td>{{this.quantidade}}</td>
+                                    <td>R$ {{this.preco_unitario}}</td>
+                                    <td><strong>R$ {{this.total}}</strong></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-success text-center fw-bold fs-5 mt-4">
+                        💰 Lucro total em vendas: R$ {{totalVendas}}
+                    </div>
+                    {{else}}
+                    <div class="alert alert-warning text-center fs-5">
+                        ⚠️ Nenhuma venda realizada até agora.
+                    </div>
+                    {{/if}}
+
+                    <div class="text-center mt-4">
+                        <a href="/painel/vendedor" class="btn btn-outline-secondary btn-lg">
+                            🔙 Voltar ao painel
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

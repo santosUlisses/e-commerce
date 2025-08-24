@@ -1,0 +1,47 @@
+<div class="container py-5">
+    {{#if lista_compras}}
+    <h2 class="mb-4 text-center fw-bold text-primary">📦 Minhas Compras</h2>
+
+    {{#each lista_compras}}
+    <div class="card shadow-lg border-0 mb-4">
+        <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between">
+            <span>🛍️ Compra realizada em {{this.data}}</span>
+            <span>Total: <strong>R$ {{this.valor_total}}</strong></span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped align-middle text-center mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.detalhes_compra}}
+                        <tr>
+                            <td class="fw-semibold">{{this.nome}}</td>
+                            <td>{{this.quantidade}}</td>
+                            <td>R$ {{this.preco_unitario}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    {{else}}
+    <div class="alert alert-info text-center fw-semibold shadow-sm">
+        ℹ️ Você ainda não fez nenhuma compra.
+    </div>
+    {{/if}}
+
+    <div class="text-center mt-4">
+        <a href="/painel/usuario" class="btn btn-outline-secondary">
+            ⬅️ Voltar
+        </a>
+    </div>
+</div>

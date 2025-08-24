@@ -1,0 +1,81 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <h2 class="text-center fw-bold text-primary mb-4">✏️ Editar Produto</h2>
+
+            <form action="/editar/produto" method="post" class="card shadow-sm p-4 border-0">
+                <input type="hidden" name="sessaoAtiva" value="{{sessaoAtiva}}">
+                <input type="hidden" name="id" value="{{produtoFormatado.id}}">
+
+
+                <div class="mb-3">
+                    <label for="nome_produto" class="form-label">Nome do Produto</label>
+                    <input type="text" class="form-control" id="nome_produto" name="nome_produto"
+                        value="{{produtoFormatado.nome_produto}}" required pattern="[A-Za-zÀ-ÿ\s]+"
+                        title="Digite apenas letras e espaços">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="valor_produto" class="form-label">Valor do Produto (R$)</label>
+                    <input type="number" step="0.01" class="form-control" id="valor_produto" name="valor_produto"
+                        value="{{produtoFormatado.valor_produto}}" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="estoque" class="form-label">Estoque</label>
+                    <input type="number" class="form-control" id="estoque" name="estoque"
+                        value="{{produtoFormatado.estoque}}" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <select class="form-select" id="categoria" name="CategoriaId" required>
+                        <option value="{{produtoFormatado.CategoriaId}}" selected>
+                            {{produtoFormatado.categoria}}
+                        </option>
+                        {{#each categorias}}
+                        <option value="{{this.id}}">{{this.nome_categoria}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success btn-lg">💾 Salvar Alterações</button>
+                </div>
+            </form>
+
+            {{#if msg_success}}
+            <div class="alert alert-success text-center mt-4 fw-bold" id="flash-message">
+                Produto atualizado!
+            </div>
+            {{/if}}
+
+            <div class="text-center mt-3">
+                <a href="/painel/vendedor" class="btn btn-outline-secondary">
+                    🔙 Voltar ao Painel
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
+
+        if (flash) {
+
+            setTimeout(() => flash.remove(), 500);
+        }
+
+    }, 3000)
+</script>

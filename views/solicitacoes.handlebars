@@ -1,0 +1,51 @@
+<div class="container py-5">
+    <h1 class="mb-4 text-center fw-bold text-primary">📋 Solicitações de Vendedor</h1>
+
+    {{#if solicitacoes}}
+    <div class="row g-4">
+        {{#each solicitacoes}}
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{this.nome}}</h5>
+                    <p class="card-text text-muted mb-1"><strong>Status:</strong> {{this.status}}</p>
+                    <p class="card-text text-muted mb-1"><strong>CNPJ:</strong> {{this.cnpj}}</p>
+                    <p class="card-text text-muted"><strong>Tipo de Produto:</strong> {{this.tipo_produto}}</p>
+
+                    <div class="d-flex gap-2">
+
+                        <form action="/aprovar/solicitacao" method="post" class="flex-fill">
+                            <input type="hidden" name="idSolicitacao" value="{{this.idSolicitacao}}">
+                            <input type="hidden" name="UserId" value="{{this.idUsuario}}">
+                            <input type="hidden" name="cnpj" value="{{this.cnpj}}">
+                            <input type="hidden" name="tipo_produto" value="{{this.tipo_produto}}">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-check-circle-fill"></i> Aprovar
+                            </button>
+                        </form>
+
+
+                        <form action="/reprovar/solicitacao" method="post" class="flex-fill">
+                            <input type="hidden" name="idSolicitacao" value="{{this.idSolicitacao}}">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-x-circle-fill"></i> Reprovar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="alert alert-info text-center" role="alert">
+        🚫 Não há solicitações no momento.
+    </div>
+    {{/if}}
+
+    <div class="text-center mt-4">
+        <a href="/painel/admin" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>

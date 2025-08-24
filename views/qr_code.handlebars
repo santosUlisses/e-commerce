@@ -1,0 +1,41 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg border-0 p-4" style="max-width: 500px; width: 100%;">
+        <div class="card-body text-center">
+
+
+            <h2 class="fw-bold text-dark mb-3">Pagamento via Pix</h2>
+            <p class="text-muted">Escaneie o QR Code abaixo ou copie o código Pix.</p>
+
+
+            <div class="mb-4">
+                <img src="{{qrCodeBase64}}" alt="QR Code Pix" class="img-fluid rounded shadow-sm" />
+            </div>
+
+
+            <div class="mb-3">
+                <label for="pixCode" class="form-label fw-semibold">Código Pix (Copia e Cola)</label>
+                <div class="input-group">
+                    <textarea id="pixCode" class="form-control" rows="3" readonly>{{brCode}}</textarea>
+                    <button class="btn btn-dark" onclick="copyPixCode()">Copiar</button>
+                </div>
+            </div>
+
+
+            <div class="text-center mt-3">
+                <a href="/painel/usuario" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyPixCode() {
+        const textarea = document.getElementById("pixCode");
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(textarea.value);
+        alert("Código Pix copiado!");
+    }
+</script>

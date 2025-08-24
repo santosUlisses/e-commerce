@@ -1,0 +1,60 @@
+<form id="form-cadastro" action="/cadastrar" method="post">
+
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" name="nome" required pattern="[A-Za-zÀ-ÿ\s]+"
+            title="Digite apenas letras e espaços" minlength="5">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" name="senha" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required>
+    </div>
+
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-success btn-lg">Cadastrar</button>
+    </div>
+</form>
+{{#if msg_error}}
+<div class="alert alert-danger text-center mt-4 fw-bold">
+    🚫 Email já cadastrado!
+</div>
+{{/if}}
+<div class="alert alert-danger text-center mt-4 fw-bold" style="display: none;" id="msg_senha">
+    🚫 As senhas não se coincidem!
+</div>
+<div class="text-center mt-3">
+    <a href="/" class="btn btn-outline-secondary">
+        🔙 Voltar ao Painel
+    </a>
+</div>
+
+
+
+
+<script>
+
+    document.getElementById("form-cadastro").addEventListener('submit', (e) => {
+        const senha = document.getElementById("senha").value;
+        const confirmarSenha = document.getElementById("confirmarSenha").value;
+        const msg_senha = document.getElementById("msg_senha");
+        if (senha !== confirmarSenha) {
+            e.preventDefault();
+            msg_senha.style.display = "block";
+        }
+
+    });
+
+</script>

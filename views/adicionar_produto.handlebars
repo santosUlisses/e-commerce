@@ -1,0 +1,65 @@
+<form action="/adicionar/produto" method="post" class="card shadow-sm p-4 border-0">
+    <input type="hidden" value="{{sessaoAtiva}}" name="UserId">
+
+
+    <div class="mb-3">
+        <label for="nome_produto" class="form-label">Nome do Produto</label>
+        <input type="text" class="form-control" name="nome_produto" required>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="valor_produto" class="form-label">Valor do Produto (R$)</label>
+        <input type="number" step="0.01" class="form-control" name="valor_produto" required>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="estoque" class="form-label">Estoque</label>
+        <input type="number" class="form-control" name="estoque" required>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <select class="form-select" name="CategoriaId" required>
+            {{#each categorias}}
+            <option value="{{this.id}}">{{this.nome_categoria}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-success btn-lg">Adicionar Produto</button>
+    </div>
+</form>
+
+
+{{#if msg_success}}
+<div class="alert alert-success text-center mt-4 fw-bold" id="flash-message">
+    Produto cadastrado!
+</div>
+{{/if}}
+
+<div class="text-center mt-3">
+    <a href="/painel/vendedor" class="btn btn-outline-secondary">
+        🔙 Voltar ao Painel
+    </a>
+</div>
+
+
+
+
+<script>
+
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
+
+        if (flash) {
+
+            setTimeout(() => flash.remove(), 500);
+        }
+
+    }, 3000)
+</script>

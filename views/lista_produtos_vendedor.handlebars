@@ -1,0 +1,49 @@
+<div class="container py-5">
+  
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <h2 class="text-center fw-bold mb-4 text-primary">📦 Meus Produtos</h2>
+
+            {{#if produtosFormatados}}
+            <div class="row g-4">
+                {{#each produtosFormatados}}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">{{this.nome_produto}}</h5>
+                            <p class="card-text mb-1">💲 <strong>Preço:</strong> R$ {{this.valor_produto}}</p>
+                            <p class="card-text mb-1">📦 <strong>Estoque:</strong> {{this.estoque}}</p>
+                            <p class="card-text mb-3">🏷️ <strong>Categoria:</strong> {{this.categoria}}</p>
+
+                            <div class="mt-auto d-flex justify-content-between">
+                                <a href="/editar/produto/{{this.id}}" class="btn btn-sm btn-outline-primary">
+                                    ✏️ Editar
+                                </a>
+                                <form action="/deletar/produto/{{this.id}}" method="post"
+                                    onsubmit="return confirm('Tem certeza que deseja deletar este produto?')">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        🗑️ Deletar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="alert alert-warning text-center fs-5 mt-4">
+                ⚠️ Você ainda não possui produtos cadastrados.
+            </div>
+            {{/if}}
+
+            <div class="text-center mt-4">
+                <a href="/painel/vendedor" class="btn btn-outline-secondary btn-lg">
+                    🔙 Voltar ao painel
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
