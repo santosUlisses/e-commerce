@@ -1,3 +1,45 @@
+Sistema de e-commerce 
+O sistema foi desenvolvido com o objetivo de simular um site real de compras/vendas de produtos. O sistema possui as funcionalidades de criação de usuário,válidação de login, e painel exclusivo para cada tipo
+de usuário. o painel de usuário possui as funcionalidades: Enviar solicitação para ser vendedor, edição de dados cadastrais, visualização de produtos disponíveis para commpras, carrinho de compras e ao finalizar a compra, o usuário vai para a página de pagamento pix.
+painel de vendedor: Adiciona,edita e exclui produtos, visualiza as vendas e o total de cada produto vendido.
+painel de administrador : adiciona categorias de produtos, aceita e recusa as solicitações para o usuário ser vendedor e edita o tipo de usuário de vendedor para usuário comum.
+foram utilizadas as seguintes tecnologias : bootstrap para o visual do front end, handlebars para os templates. para o back end foi utilizado nodeJs,express,bcrypt e a ORM Sequelize para a conexão e consultas ao
+banco de dados.
+
+
+# 🛒 Sistema de E-commerce
+
+Este projeto foi desenvolvido com o objetivo de simular um site real de compras e vendas de produtos, oferecendo diferentes níveis de acesso para usuário, vendedor e administrador.
+Funcionalidades:
+
+Usuário:
+- Criar conta e realizar login (com validação).
+- Editar dados cadastrais.
+- Visualizar produtos disponíveis para compra.
+- Adicionar produtos ao carrinho.
+- Finalizar compra e acessar a **página de pagamento via Pix**.
+- Solicitar permissão para se tornar vendedor.
+
+Vendedor:
+- Adicionar novos produtos.
+- Editar e excluir produtos.
+- Visualizar vendas realizadas.
+- Consultar o total de cada produto vendido.
+
+Administrador:
+- Adicionar categorias de produtos.
+- Aceitar ou recusar solicitações para transformar usuários em vendedores.
+- Alterar o tipo de usuário (vendedor ↔ usuário comum).
+
+Tecnologias Utilizadas:
+- Front-end: Bootstrap, Handlebars
+- Back-end: Node.js, Express
+- Banco de Dados: MySQL (via Sequelize ORM)
+- Segurança: Bcrypt (hash de senhas)
+- Pagamentos: Pix-Static (geração de QR Code Pix)
+- dotenv para configuração de variáveis de ambiente
+
+
 Painel admin : 
 
 <img width="1919" height="602" alt="painel admin" src="https://github.com/user-attachments/assets/4d1ab2b3-20ea-4e58-bbfe-1c2100ccc8eb" />
