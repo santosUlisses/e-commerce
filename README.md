@@ -26,3 +26,5 @@ Painel usuario :
 <img width="1919" height="753" alt="carrinho usuario" src="https://github.com/user-attachments/assets/8c6056ba-49a7-4fcc-94f5-54b57d434f14" />
 
 <img width="1919" height="884" alt="compras" src="https://github.com/user-attachments/assets/8391b20a-120f-4861-9edf-f564889fd417" />
+
+<img width="1919" height="908" alt="pagamento" src="https://github.com/user-attachments/assets/16735c44-1d89-4fea-bf2d-d279db8db8e7" />
