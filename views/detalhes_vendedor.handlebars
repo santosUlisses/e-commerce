@@ -1,0 +1,58 @@
+<div class="container my-5">
+
+
+    {{#each detalhes_vendedor}}
+    <div class="card shadow-lg border-0 mb-4">
+        <div class="card-body">
+            <h3 class="fw-bold text-dark mb-3">
+                <i class="bi bi-person-badge"></i> Detalhes do Vendedor
+            </h3>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Nome:</strong> {{this.nome}}</li>
+                <li class="list-group-item"><strong>Email:</strong> {{this.email}}</li>
+                <li class="list-group-item"><strong>CNPJ:</strong> {{this.cnpj}}</li>
+                <li class="list-group-item"><strong>Tipo de Usuário:</strong> {{this.tipo_usuario}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            <h4 class="fw-semibold text-dark mb-3">
+                <i class="bi bi-box-seam"></i> Produtos do Vendedor
+            </h4>
+            <table class="table table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.produtos}}
+                    <tr>
+                        <td>{{this.nome_produto}}</td>
+                        <td>R$ {{this.valor_produto}}</td>
+                        <td>{{this.categoria}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{/each}}
+
+
+    <div class="alert alert-success text-center fw-bold mt-4">
+        <i class="bi bi-cash-coin"></i> Total em vendas: R$ {{total_vendas}}
+    </div>
+
+
+    <div class="text-center mt-3">
+        <a href="/painel/admin" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>

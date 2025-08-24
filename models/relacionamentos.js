@@ -16,6 +16,7 @@ User.hasMany(Produto)
 Produto.belongsTo(User)
 Solicitacao.belongsTo(User);
 Cnpj.belongsTo(User);
+User.hasOne(Cnpj);
 
 
 Produto.belongsTo(Categoria, { foreignKey: 'CategoriaId', });

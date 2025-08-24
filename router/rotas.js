@@ -39,6 +39,7 @@ rota.get('/carrinho/usuario', Controller.carrinhoUsuario);
 rota.post('/finalizar/compra', Controller.finalizarCompra);
 rota.get('/lista/compras', Controller.listaCompras);
 rota.get('/vendas/usuario', Autenticacao.authVendedor, Controller.vendasUsuario);
+rota.get('/vendedor/detalhes/:id', Controller.detalhesVendedor);
 
 
 

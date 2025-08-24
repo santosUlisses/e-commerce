@@ -547,6 +547,50 @@ class Controller {
         }
     }
 
+
+
+    async detalhesVendedor(req, res) {
+        const { id } = req.params;
+        try {
+            const detalhes = await User.findAll({ include: [{ model: Produto, include: [{ model: Categoria, attributes: ['nome_categoria'] }] }, { model: Cnpj }], where: { id: id } });
+            const detalhes_vendedor = detalhes.map(m => {
+
+                const dados = m.get({ plain: true });
+
+                return {
+                    nome: dados.nome,
+                    email: dados.email,
+                    cnpj: dados.Cnpj.cnpj,
+                    tipo_usuario: dados.tipo_usuario,
+                    produtos: dados.Produtos.map(p => { return { nome_produto: p.nome_produto, valor_produto: p.valor_produto, categoria: p.Categorium.nome_categoria } }),
+                }
+
+            });
+
+            const produtosVendidos = await Produto.findAll({
+                where: { UserId: id }, include: [{ model: ProdutoCarrinho, attributes: ['quantidade', 'preco_unitario'], include: [{ model: Carrinho, where: { status: "finalizado" } }] },]
+            });
+
+            const total = []
+            produtosVendidos.map(m => {
+                const dados = m.get({ plain: true });
+                dados.ProdutoCarrinhos.forEach((pc) => {
+                    total.push(pc.quantidade * parseFloat(pc.preco_unitario));
+                });
+
+            });
+
+            const total_vendas = total.reduce((a, i) => a + i, 0)
+
+
+
+
+            res.render('detalhes_vendedor', { detalhes_vendedor, total_vendas });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }
 
 
