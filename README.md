@@ -21,6 +21,7 @@ Administrador:
 - Adicionar categorias de produtos.
 - Aceitar ou recusar solicitações para transformar usuários em vendedores.
 - Alterar o tipo de usuário (vendedor ↔ usuário comum).
+- Visualizar os dados do vendedor, produtos e suas vendas.
 
 Tecnologias Utilizadas:
 - Front-end: Bootstrap, Handlebars
@@ -39,7 +40,10 @@ Painel admin :
 
 <img width="1919" height="738" alt="solicitações" src="https://github.com/user-attachments/assets/8e543a4e-8a66-4550-a717-541a0cc7ede5" />
 
-<img width="1919" height="637" alt="vendedores" src="https://github.com/user-attachments/assets/77484434-b2e6-4d7c-863e-8517b6f37d3a" />
+<img width="1919" height="531" alt="vendedores" src="https://github.com/user-attachments/assets/6bee0949-c786-403f-b112-92d9c5e9f456" />
+
+<img width="1919" height="908" alt="detalhes vendedor" src="https://github.com/user-attachments/assets/dc71f30c-c589-4863-a14f-45f1907c50c8" />
+
 <br><br><br><br>
 
 Painel vendedor : 
