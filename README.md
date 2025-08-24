@@ -1,14 +1,4 @@
-Sistema de e-commerce 
-O sistema foi desenvolvido com o objetivo de simular um site real de compras/vendas de produtos. O sistema possui as funcionalidades de criação de usuário,válidação de login, e painel exclusivo para cada tipo
-de usuário. o painel de usuário possui as funcionalidades: Enviar solicitação para ser vendedor, edição de dados cadastrais, visualização de produtos disponíveis para commpras, carrinho de compras e ao finalizar a compra, o usuário vai para a página de pagamento pix.
-painel de vendedor: Adiciona,edita e exclui produtos, visualiza as vendas e o total de cada produto vendido.
-painel de administrador : adiciona categorias de produtos, aceita e recusa as solicitações para o usuário ser vendedor e edita o tipo de usuário de vendedor para usuário comum.
-foram utilizadas as seguintes tecnologias : bootstrap para o visual do front end, handlebars para os templates. para o back end foi utilizado nodeJs,express,bcrypt e a ORM Sequelize para a conexão e consultas ao
-banco de dados.
-
-
-# 🛒 Sistema de E-commerce
-
+Sistema de E-commerce
 Este projeto foi desenvolvido com o objetivo de simular um site real de compras e vendas de produtos, oferecendo diferentes níveis de acesso para usuário, vendedor e administrador.
 Funcionalidades:
 
