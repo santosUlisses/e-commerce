@@ -588,6 +588,7 @@ class Controller {
             res.render('detalhes_vendedor', { detalhes_vendedor, total_vendas });
         } catch (error) {
             console.log(error);
+            res.redirect('/painel/admin')
         }
     }
 
